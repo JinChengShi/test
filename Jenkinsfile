@@ -20,6 +20,7 @@ pipeline {
                 stage("build") {
                     steps {
                         echo "$GIT_COMMIT"
+                        echo "$CHANGE_AUTHOR_EMAIL"
                     }
                 }
             }
