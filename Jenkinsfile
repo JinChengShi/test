@@ -19,6 +19,7 @@ pipeline {
             parallel {
                 stage("build") {
                     steps {
+                        echo "start build"
                         echo "$GIT_COMMIT"
                         echo "$CHANGE_AUTHOR_EMAIL"
                     }
