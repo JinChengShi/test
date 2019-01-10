@@ -20,8 +20,8 @@ pipeline {
                 stage("build") {
                     steps {
                         echo "$GIT_COMMIT"
-                        sh 'set GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
-                        sh 'set GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)'
+                        sh "set GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)"
+                        sh "set GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)"
                         sh 'env' 
                     }
                 }
