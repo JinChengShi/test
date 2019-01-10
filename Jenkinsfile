@@ -20,13 +20,10 @@ pipeline {
                 stage("build") {
                     steps {
                         echo "$GIT_COMMIT"
-                        echo "${CHANGE_AUTHOR_EMAIL}"
-                        echo "${CHANGE_AUTHOR}"
-                        echo "${CHANGE_AUTHOR_DISPLAY_NAME}"
-                        GIT_NAME = $(git --no -pager show -s --format ='％a'$GIT_COMMIT)
-                        GIT_EMAIL = $(git --no-pager show -s --format ='％ae'$GIT_COMMIT)
-                        echo "$GIT_NAME"
-                        echo "$GIT_EMAIL"
+                        sh 'env > env.txt' 
+                        for (String i : readFile('env.txt').split("\r?\n")) {
+                            println i
+                        }
                     }
                 }
             }
