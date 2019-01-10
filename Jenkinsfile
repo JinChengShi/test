@@ -20,9 +20,9 @@ pipeline {
                 stage("build") {
                     steps {
                         echo "$GIT_COMMIT"
-                        echo "${CHANGE_AUTHOR_EMAIL}"
-                        echo "${CHANGE_AUTHOR}"
-                        echo "${CHANGE_AUTHOR_DISPLAY_NAME}"
+                        echo "${env.CHANGE_AUTHOR_EMAIL}"
+                        echo "${env.CHANGE_AUTHOR}"
+                        echo "${env.CHANGE_AUTHOR_DISPLAY_NAME}"
                     }
                 }
             }
