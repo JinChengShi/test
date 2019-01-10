@@ -21,7 +21,7 @@ pipeline {
                     steps {
                         echo "$GIT_COMMIT"
                         echo "${CHANGE_AUTHOR_EMAIL}"
-                        echo "${CHANGE_AUTHOR}"
+                        echo "$GIT_COMMITTER_EMAIL"
                         echo "${CHANGE_AUTHOR_DISPLAY_NAME}"
                     }
                 }
