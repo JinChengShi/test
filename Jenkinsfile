@@ -29,28 +29,10 @@ pipeline {
         }
     }
     post {
-        always {
-            echo "One way or another, I have finished"
-        }
-        success {
-            setBuildStatus("Build succeeded", "SUCCESS");
-            echo "I succeeeded!"
-            mail to: "$env.mailtoUser",
-            subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Success with ${env.BUILD_URL}"
-        }
-        unstable {
-            echo "I am unstable :/"
-            mail to: "$env.mailtoUser",
-            subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}"
-        }
-        failure {
-            setBuildStatus("Build failed", "FAILURE");
-            echo "I failed :("
-            mail to: "$env.mailtoUser",
-            subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}"
-        }
-    }
+		success {
+			script {
+				def comment = pullRequest.comment('This PR 11111111111')
+			}
+		}
+	}
 }
