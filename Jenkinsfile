@@ -20,8 +20,8 @@ pipeline {
                 stage("build") {
                     steps {
                         echo "$GIT_COMMIT"
-                        sh "git --no-pager show -s --format='%an' ${GIT_COMMIT} | set GIT_NAME="
-                        sh "git --no-pager show -s --format='%ae' ${GIT_COMMIT} | set GIT_EMAIL="
+                        sh "git --no-pager show -s --format='%an' ${GIT_COMMIT}"
+                        sh "git --no-pager show -s --format='%ae' ${GIT_COMMIT}"
                         sh 'env' 
                     }
                 }
@@ -31,6 +31,7 @@ pipeline {
     post {
 		success {
 			script {
+				setBuildStatus("Build succeeded", "SUCCESS");
 				def comment = pullRequest.comment('This PR 11111111111')
 			}
 		}
