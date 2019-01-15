@@ -33,10 +33,6 @@ pipeline {
 			script {
 				setBuildStatus("Build succeeded", "SUCCESS");
 				//def comment = pullRequest.comment('This PR 11111111111')
-				/*pullRequest.createStatus(status: 'success',
-                         				context: 'ci/jenkins/test',
-                         				description: 'All tests are passing',
-                         				targetUrl: "${env.JOB_URL}/testResults")*/
 			}
 		}
 	}
