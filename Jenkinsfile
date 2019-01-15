@@ -19,6 +19,7 @@ pipeline {
             parallel {
                 stage("build") {
                     steps {
+                        echo "start build"
                         echo "$GIT_COMMIT"
                         sh "git --no-pager show -s --format='%an' ${GIT_COMMIT}"
                         sh "git --no-pager show -s --format='%ae' ${GIT_COMMIT}"
